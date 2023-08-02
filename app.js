@@ -1,8 +1,10 @@
+const cors = require('cors')
 const express = require('express');
 require('dotenv').config();
 const morgan = require('morgan');
 
 const checkRouter = require('./routes/checkRoutes')
+const userRouter = require('./routes/userRoutes')
 
 const app = express();
 
@@ -25,6 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/checks/', checkRouter)
+app.use('/user', userRouter)
 
 module.exports = app;
 
